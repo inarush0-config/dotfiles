@@ -34,6 +34,7 @@ alias vim="nvim"
 alias venv="source .venv/bin/activate"
 alias cd="z"
 alias cz="chezmoi"
+alias lz="lazygit"
 
 source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
 
