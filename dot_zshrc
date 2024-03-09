@@ -33,6 +33,7 @@ alias watch="watch "
 alias vim="nvim"
 alias venv="source .venv/bin/activate"
 alias cd="z"
+alias cz="chezmoi"
 
 source /usr/local/share/powerlevel10k/powerlevel10k.zsh-theme
 
