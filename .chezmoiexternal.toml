@@ -2,3 +2,8 @@
 type = "git-repo"
 url = "https://github.com/tmux-plugins/tpm"
 refreshPeriod = "168h"
+
+[".config/nvim"]
+type = "git-repo"
+url = "git@github.com:inarush0-config/kickstart-modular.nvim.git"
+refreshPeriod = "1h"
