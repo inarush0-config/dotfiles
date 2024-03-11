@@ -1,3 +1,4 @@
+# vim: set filetype=bash
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -10,25 +11,31 @@ unsetopt autocd extendedglob notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/inarush0/.zshrc'
+zstyle :compinstall filename '${HOME}/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+eval "$(starship init zsh)"
 
-alias ls="ls --color=auto"
-alias ll="ls -lha"
-alias k="kubectl"
-alias ktx="kubectx"
-alias kns="kubens"
-alias watch="watch "
-alias vim="nvim"
-alias venv="source .venv/bin/activate"
 alias cd="z"
 alias cz="chezmoi"
+alias gpsup="git push -u origin HEAD"
+alias k="kubectl"
+alias kns="kubens"
+alias ktx="kubectx"
+alias ll="ls -lha"
+alias ls="ls --color=auto"
 alias lz="lazygit"
+alias tf="terraform"
+alias tfdocs="terraform-docs md . | pbcopy"
+alias venv="source .venv/bin/activate"
+alias vim="nvim"
+alias watch="watch "
 
-eval "$(starship init zsh)"
+if [ -f $HOME/.zshrc.local ]; then
+	source $HOME/.zshrc.local
+fi
 
 eval "$(nodenv init -)"
 
@@ -36,8 +43,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
 eval "$(pyenv init -)"
+
 eval "$(zoxide init zsh)"
 
-if [ -f $HOME/.zshrc.local ]; then
-	source $HOME/.zshrc.local
-fi
