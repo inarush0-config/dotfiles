@@ -29,7 +29,7 @@ alias ls="ls --color=auto"
 alias lz="lazygit"
 alias tf="terraform"
 alias tfdocs="terraform-docs md . | pbcopy"
-alias venv="source .venv/bin/activate"
+alias venv="source .venv/bin/activate; which python"
 alias vim="nvim"
 alias watch="watch "
 
