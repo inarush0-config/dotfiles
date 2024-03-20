@@ -48,3 +48,5 @@ export PATH=$PATH:$GOPATH/bin
 
 eval "$(zoxide init zsh)"
 
+bindkey -v
+bindkey ^R history-incremental-search-backward
