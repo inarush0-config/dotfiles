@@ -16,6 +16,10 @@ zstyle :compinstall filename '${HOME}/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+if [ -f $HOME/.zshrc.local ]; then
+	source $HOME/.zshrc.local
+fi
+
 eval "$(starship init zsh)"
 
 alias cd="z"
@@ -32,10 +36,6 @@ alias tfdocs="terraform-docs md . | pbcopy"
 alias venv="source .venv/bin/activate; which python"
 alias vim="nvim"
 alias watch="watch "
-
-if [ -f $HOME/.zshrc.local ]; then
-	source $HOME/.zshrc.local
-fi
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
