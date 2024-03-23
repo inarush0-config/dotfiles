@@ -50,3 +50,5 @@ eval "$(zoxide init zsh)"
 
 bindkey -v
 bindkey ^R history-incremental-search-backward
+
+export HOMEBREW_NO_ENV_HINTS=1
