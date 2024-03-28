@@ -14,10 +14,7 @@ bindkey -e
 zstyle :compinstall filename '${HOME}/.zshrc'
 
 # Add homebrew completions
-if type brew &>/dev/null
-then 
-	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 autoload -Uz compinit
 compinit
