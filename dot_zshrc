@@ -61,7 +61,7 @@ function saml() {
 	if [ -z "$1" ]
 	then
 		saml2aws login
-		export AWS_PROFILE=default
+		export AWS_PROFILE=saml
 	else
 		saml2aws login -a $1
 		export AWS_PROFILE=$1
