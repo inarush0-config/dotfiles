@@ -6,7 +6,8 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=100000
-setopt beep nomatch
+setopt SHARE_HISTORY
+setopt nobeep
 unsetopt autocd extendedglob notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -27,6 +28,7 @@ compinit
 eval "$(starship init zsh)"
 
 alias cd="z"
+alias cdk="npx aws-cdk"
 alias cz="chezmoi"
 alias gpsup="git push -u origin HEAD"
 alias k="kubectl"
