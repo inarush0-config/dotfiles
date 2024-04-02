@@ -69,3 +69,5 @@ function saml() {
 		export AWS_PROFILE=$1
 	fi
 }
+
+export EDITOR=vim
