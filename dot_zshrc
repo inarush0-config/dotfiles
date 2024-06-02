@@ -41,6 +41,7 @@ alias tf="terraform"
 alias tfdocs="terraform-docs md . | pbcopy"
 alias venv="source .venv/bin/activate; which python"
 alias vim="nvim"
+alias n="nvim"
 alias watch="watch "
 
 export PYENV_ROOT="$HOME/.pyenv"
