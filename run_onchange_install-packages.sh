@@ -1,7 +1,6 @@
 #!/bin/bash
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
-tap "homebrew/cask-fonts"
 
 brew "awscli"
 brew "bottom"
