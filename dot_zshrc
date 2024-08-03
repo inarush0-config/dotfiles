@@ -1,6 +1,6 @@
 # vim: set filetype=bash
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
