@@ -73,4 +73,15 @@ function saml() {
 	fi
 }
 
+function podpurge() {
+	# Stop all running containers
+	podman stop -a
+	# Remove all containers (including stopped ones)
+	podman rm -a
+	# Remove all images
+	podman rmi -a
+	# Remove all unused data (images, containers, volumes, and networks)
+	podman system prune -a --volumes
+}
+
 export EDITOR=vim
