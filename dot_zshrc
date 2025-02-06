@@ -1,4 +1,4 @@
-# vim: set filetype=bash
+# vim: ft=zsh
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 
@@ -36,12 +36,13 @@ alias ktx="kubectx"
 alias ll="ls -lha"
 alias ls="ls --color=auto"
 alias lz="lazygit"
+alias lzd="lazydocker"
+alias n="nvim"
 alias tf="terraform"
-alias tg="terragrunt"
 alias tfdocs="terraform-docs md . | pbcopy"
+alias tg="terragrunt"
 alias venv="source .venv/bin/activate; which python"
 alias vim="nvim"
-alias n="nvim"
 alias watch="watch "
 
 export UV_PYTHON_PREFERENCE=only-system
@@ -85,5 +86,58 @@ function podpurge() {
 	# Remove all unused data (images, containers, volumes, and networks)
 	podman system prune -a --volumes
 }
+
+# Function to setup Docker host for Podman
+setup_podman_docker_host() {
+    local verbose=false
+    if [ "$1" = "-v" ]; then
+        verbose=true
+    fi
+
+    debug() {
+        if $verbose; then
+            echo "$1"
+        fi
+    }
+
+    # Check if podman exists
+    if ! command -v podman >/dev/null 2>&1; then
+        debug "Podman is not installed"
+        return 1
+    fi
+
+    # Check if any podman machine exists
+    if [ -z "$(podman machine list --format '{{.Name}}')" ]; then
+        debug "No podman machine exists"
+        return 1
+    fi
+
+    # Check if machine is running
+    if ! podman machine list --format "{{.Running}}" | grep -q "true"; then
+        debug "Podman machine is not running. Starting..."
+        podman machine start
+    fi
+
+    # Get socket path and verify it exists
+    socket_path=$(podman machine inspect | jq -r '.[0].ConnectionInfo.PodmanSocket.Path')
+    debug "Socket path is: $socket_path"
+    
+    # Give the socket a moment to be created if machine just started
+    sleep 2
+
+    if [ ! -e "$socket_path" ]; then
+        debug "Podman socket file does not exist at $socket_path"
+        return 1
+    fi
+
+    export DOCKER_HOST="unix://$socket_path"
+    debug "DOCKER_HOST has been set to unix://$socket_path"
+}
+
+# Create alias for easy access
+alias podhost="setup_podman_docker_host -v"
+
+# Try to set up DOCKER_HOST on shell startup (quiet mode)
+setup_podman_docker_host >/dev/null 2>&1
 
 export EDITOR=vim
