@@ -1,4 +1,4 @@
 font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 16
-theme = gruvboxdark
+theme = dark:gruvboxdark,light:gruvboxlight
 quit-after-last-window-closed = true
