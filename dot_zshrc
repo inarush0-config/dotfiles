@@ -138,6 +138,6 @@ setup_podman_docker_host() {
 alias podhost="setup_podman_docker_host -v"
 
 # Try to set up DOCKER_HOST on shell startup (quiet mode)
-setup_podman_docker_host >/dev/null 2>&1
+# setup_podman_docker_host >/dev/null 2>&1
 
 export EDITOR=vim
