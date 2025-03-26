@@ -1,6 +1,10 @@
 # vim: ft=zsh
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
-export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
+
+if [ -f $HOME/.zshrc.local ]; then
+	source $HOME/.zshrc.local
+fi
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -15,9 +19,6 @@ bindkey -e
 zstyle :compinstall filename '${HOME}/.zshrc'
 
 # End of lines added by compinstall
-if [ -f $HOME/.zshrc.local ]; then
-	source $HOME/.zshrc.local
-fi
 #
 # Add homebrew completions
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
