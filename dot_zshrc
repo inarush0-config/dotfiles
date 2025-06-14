@@ -1,4 +1,6 @@
 # vim: ft=zsh
+#amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/.local/bin:$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 
@@ -122,7 +124,7 @@ setup_podman_docker_host() {
     # Get socket path and verify it exists
     socket_path=$(podman machine inspect | jq -r '.[0].ConnectionInfo.PodmanSocket.Path')
     debug "Socket path is: $socket_path"
-    
+
     # Give the socket a moment to be created if machine just started
     sleep 2
 
@@ -142,3 +144,5 @@ alias podhost="setup_podman_docker_host -v"
 # setup_podman_docker_host >/dev/null 2>&1
 
 export EDITOR=vim
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
