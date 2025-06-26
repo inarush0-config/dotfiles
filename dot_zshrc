@@ -144,6 +144,6 @@ alias podhost="setup_podman_docker_host -v"
 # Try to set up DOCKER_HOST on shell startup (quiet mode)
 # setup_podman_docker_host >/dev/null 2>&1
 
-export EDITOR=vim
+export EDITOR=nvim
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
