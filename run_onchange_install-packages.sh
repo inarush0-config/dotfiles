@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 
 brew "awscli"
 brew "bottom"
