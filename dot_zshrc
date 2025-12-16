@@ -1,6 +1,7 @@
 # vim: ft=zsh
-#amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+
 PATH=/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$HOME/.local/bin:$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 
@@ -47,6 +48,7 @@ alias tg="terragrunt"
 alias venv="source .venv/bin/activate; which python"
 alias vim="nvim"
 alias watch="watch "
+alias kiro="kiro-cli"
 
 eval "$(nodenv init -)"
 export PATH=$PATH:$(npm get prefix)/bin
@@ -140,5 +142,5 @@ alias podhost="setup_podman_docker_host -v"
 # setup_podman_docker_host >/dev/null 2>&1
 
 export EDITOR=nvim
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
