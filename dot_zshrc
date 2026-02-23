@@ -46,7 +46,7 @@ alias tg="terragrunt"
 alias venv="source .venv/bin/activate; which python"
 alias vim="nvim"
 alias watch="watch "
-alias kiro="kiro-cli"
+alias cc="claude"
 
 eval "$(nodenv init -)"
 export PATH=$PATH:$(npm get prefix)/bin
